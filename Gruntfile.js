@@ -95,17 +95,17 @@ module.exports = function(grunt) {
   ]);
 
   grunt.registerTask('build', [
-    'eslint', 'concat', 'cssmin', 'uglify', 'test'
+    'eslint', 'concat', 'cssmin', 'uglify'
   ]);
 
   grunt.registerTask('upload', function(n) {
     if (grunt.option('prod')) {
       // add your production server task here
       grunt.log.write(['shell:prodServer']);
-      grunt.task.run(['shell:prodServer']);
+      grunt.task.run(['build', 'shell:prodServer']);
       grunt.log.write(['After']);
     } else {
-      grunt.task.run(['build', 'server-dev' ]);
+      grunt.task.run(['build', 'server-dev', 'test' ]);
     }
   });
 
