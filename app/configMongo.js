@@ -2,8 +2,7 @@ var mongoose = require('mongoose');
 var path = require('path');
 var bcrypt = require('bcrypt-nodejs');
 
-
-mongoose.connect('mongodb://localhost/app/db');
+mongoose.connect('mongodb://localhost:27017/db');
 
 var Schema = mongoose.Schema;
 
@@ -12,7 +11,7 @@ var userSchema = new Schema({
   password: String,
   createdAt: Date,
   updatedAt: Date
-}, {collection: 'Users'});
+});
 
 
 var linkSchema = new Schema({
@@ -23,7 +22,7 @@ var linkSchema = new Schema({
   visits: Number,
   createdAt: Date,
   updatedAt: Date
-}, {collection: 'Links'});
+});
 
 userSchema.pre('save', function(next) {
   this.updatedAt = new Date();
@@ -60,5 +59,5 @@ var Link = mongoose.model('Link', linkSchema);
 
 module.exports.User = User;
 module.exports.Link = Link;
-module.exports.Users = Users;
-module.exports.Links = Links;
+// module.exports.Users = Users;
+// module.exports.Links = Links;
