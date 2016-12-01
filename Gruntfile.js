@@ -3,6 +3,11 @@ module.exports = function(grunt) {
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
     concat: {
+      options: {separator: ';'},
+      dist: {
+        src: ['public/client/*.js'],
+        dest: 'public/dist/public.min.js'
+      }
     },
 
     mochaTest: {
@@ -21,15 +26,25 @@ module.exports = function(grunt) {
     },
 
     uglify: {
+      target: {
+        files: {
+          'public/dist/client.min.js': ['public/dist/client.min.js'],
+        }
+      }
     },
 
     eslint: {
       target: [
-        // Add list of files to lint here
+        './'
       ]
     },
 
     cssmin: {
+      target: {
+        files: {
+          'public/dist/style.min.css': ['public/style.css']
+        }
+      }
     },
 
     watch: {
@@ -51,6 +66,7 @@ module.exports = function(grunt) {
 
     shell: {
       prodServer: {
+        command: 'git add . && git commit -m "PRODUCING SERVER WITH COMMIT" && git push beta master'
       }
     },
   });
@@ -77,11 +93,13 @@ module.exports = function(grunt) {
   ]);
 
   grunt.registerTask('build', [
+    'eslint', 'concat', 'cssmin', 'uglify', 'test'
   ]);
 
   grunt.registerTask('upload', function(n) {
     if (grunt.option('prod')) {
       // add your production server task here
+      grunt.task.run(['shell']);
     } else {
       grunt.task.run([ 'server-dev' ]);
     }
@@ -89,7 +107,12 @@ module.exports = function(grunt) {
 
   grunt.registerTask('deploy', [
     // add your deploy tasks here
+    // run server and tests 
+    grunt.task.run(['build', 'upload'])
   ]);
 
+  // grunt.registerTask('default', ['upload', 'test', 'build', 'upload', 'deploy']);
+  // grunt.registerTask('default', ['server-dev', 'deploy']);
+  // grunt.registerTask('default', ['deploy']);
 
 };
