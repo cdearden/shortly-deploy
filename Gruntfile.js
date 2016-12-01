@@ -6,7 +6,7 @@ module.exports = function(grunt) {
       options: {separator: ';'},
       dist: {
         src: ['public/client/*.js'],
-        dest: 'public/dist/public.min.js'
+        dest: 'public/dist/client.min.js'
       }
     },
 
@@ -101,16 +101,17 @@ module.exports = function(grunt) {
   grunt.registerTask('upload', function(n) {
     if (grunt.option('prod')) {
       // add your production server task here
+      grunt.log.write(['shell:prodServer']);
       grunt.task.run(['shell:prodServer']);
     } else {
-      grunt.task.run([ 'server-dev' ]);
+      grunt.task.run(['build', 'server-dev' ]);
     }
   });
 
   grunt.registerTask('deploy', [
     // add your deploy tasks here
     // run server and tests 
-    grunt.task.run(['build', 'upload'])
+    grunt.task.run(['upload'])
   ]);
 
   // grunt.registerTask('default', ['upload', 'test', 'build', 'upload', 'deploy']);
