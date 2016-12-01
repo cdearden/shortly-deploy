@@ -103,6 +103,7 @@ module.exports = function(grunt) {
       // add your production server task here
       grunt.log.write(['shell:prodServer']);
       grunt.task.run(['shell:prodServer']);
+      grunt.log.write(['After']);
     } else {
       grunt.task.run(['build', 'server-dev' ]);
     }
