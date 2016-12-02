@@ -3,8 +3,8 @@ var path = require('path');
 var bcrypt = require('bcrypt-nodejs');
 var crypto = require('crypto');
 var Promise = require('bluebird');
-
-mongoose.connect('mongodb://localhost:27017/data/db');
+ //asdf
+mongoose.connect('mongodb://localhost:27017/db');
 
 var Schema = mongoose.Schema;
 
