@@ -74,6 +74,7 @@ gulp.task('exec', function() {
 gulp.task('build', [
   'eslint', 'concat', 'cssClean', 'uglify'
 ]);
+gulp.task('deploy', ['upload']);
 
 gulp.task('upload', function() {
   if (argv.env === 'prod') {
@@ -83,7 +84,6 @@ gulp.task('upload', function() {
   }
 });
 
-gulp.task('deploy', ['upload']);
 
 gulp.task('default', []);
 
