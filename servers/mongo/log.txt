@@ -43,3 +43,5 @@
 2016-12-01T16:29:45.049-0800 [clientcursormon]  connections:0
 2016-12-01T16:30:16.099-0800 [initandlisten] connection accepted from 127.0.0.1:56056 #4 (1 connection now open)
 2016-12-01T16:30:35.948-0800 [conn4] end connection 127.0.0.1:56056 (0 connections now open)
+2016-12-01T16:33:21.987-0800 [initandlisten] connection accepted from 127.0.0.1:56066 #5 (1 connection now open)
+2016-12-01T16:33:22.824-0800 [conn5] end connection 127.0.0.1:56066 (0 connections now open)
