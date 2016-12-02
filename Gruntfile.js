@@ -68,7 +68,7 @@ module.exports = function(grunt) {
       prodServer: {
         command: ['git add .',
           'git commit -m "PRODUCING SERVER WITH COMMIT"',
-          'git push beta mnmaster'].join('&&')
+          'git push beta master'].join('&&')
       }
     },
   });
@@ -83,7 +83,8 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-nodemon');
 
   grunt.registerTask('server-dev', function (target) {
-    grunt.task.run([ 'nodemon', 'watch' ]);
+    // grunt.task.run([ 'nodemon', 'watch' ]);
+    grunt.task.run(['nodemon']);
   });
 
   ////////////////////////////////////////////////////
@@ -99,24 +100,19 @@ module.exports = function(grunt) {
   ]);
 
   grunt.registerTask('upload', function(n) {
+    console.log('WHY AM I RUNNING');
     if (grunt.option('prod')) {
-      // add your production server task here
-      // grunt.log.write(['shell:prodServer']);
-      grunt.task.run(['build', 'shell:prodServer']);
-      // grunt.log.write(['After']);
+      grunt.task.run(['shell:prodServer']);
     } else {
       grunt.task.run(['build', 'server-dev']);
     }
   });
 
-  grunt.registerTask('deploy', [
-    // add your deploy tasks here
-    // run server and tests 
-    grunt.task.run(['upload'])
-  ]);
+  grunt.registerTask('deploy', function(n) {  
+    grunt.task.run(['upload']);
+  }
+  );
 
-  // grunt.registerTask('default', ['upload', 'test', 'build', 'upload', 'deploy']);
-  // grunt.registerTask('default', ['server-dev', 'deploy']);
   grunt.registerTask('default', ['test']);
 
 };

@@ -3,9 +3,10 @@ var express = require('express');
 var expect = require('chai').expect;
 var app = require('../server-config.js');
 var db = require('../app/configMongo');
-var User = require('../app/models/user');
-var Link = require('../app/models/link');
-
+// var User = require('../app/models/user');
+// var Link = require('../app/models/link');
+var User = db.User;
+var Link = db.Link;
 /////////////////////////////////////////////////////
 // NOTE: these tests are designed for mongo!
 /////////////////////////////////////////////////////
@@ -27,7 +28,7 @@ describe('', function() {
       });
   });
 
-  describe('Link creation: ', function() {
+  xdescribe('Link creation: ', function() {
 
     it('Only shortens valid urls, returning a 404 - Not found for invalid urls', function(done) {
       request(app)
@@ -38,7 +39,7 @@ describe('', function() {
         .end(done);
     });
 
-    describe('Shortening links:', function() {
+    xdescribe('Shortening links:', function() {
 
       it('Responds with the short code', function(done) {
         request(app)
@@ -87,7 +88,7 @@ describe('', function() {
 
     }); // 'Shortening Links'
 
-    describe('With previously saved urls: ', function() {
+    xdescribe('With previously saved urls: ', function() {
 
       beforeEach(function(done) {
         link = new Link({
@@ -132,7 +133,7 @@ describe('', function() {
 
   }); // 'Link creation'
 
-  describe('Priviledged Access:', function() {
+  xdescribe('Priviledged Access:', function() {
 
     // /*  Authentication  */
     // // TODO: xit out authentication
@@ -187,6 +188,7 @@ describe('', function() {
     });
 
     it('Successful signup logs in a new user', function(done) {
+      this.timeout(5000);
       request(app)
         .post('/signup')
         .send({
@@ -194,6 +196,7 @@ describe('', function() {
           'password': 'Phillip' })
         .expect(302)
         .expect(function(res) {
+          console.log("redirect SPEC", res.headers.location);
           expect(res.headers.location).to.equal('/');
           request(app)
             .get('/logout')
@@ -207,6 +210,7 @@ describe('', function() {
   describe('Account Login:', function() {
 
     beforeEach(function(done) {
+      this.timeout(5000);
       new User({
         'username': 'Phillip',
         'password': 'Phillip'
@@ -216,6 +220,7 @@ describe('', function() {
     });
 
     it('Logs in existing users', function(done) {
+      this.timeout(5000);
       request(app)
         .post('/login')
         .send({
