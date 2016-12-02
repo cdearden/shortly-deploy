@@ -35,9 +35,6 @@ userSchema.pre('save', function(next) {
 });
 
 userSchema.methods.comparePassword = function(attemptedPassword, callback) {
-  console.log('CALLING COMAPRE');
-  console.log('attemptedPassword', attemptedPassword);
-  console.log('this.password', this.password);
   bcrypt.compare(attemptedPassword, this.password, function(err, isMatch) {
     callback(isMatch);
   });
@@ -45,16 +42,11 @@ userSchema.methods.comparePassword = function(attemptedPassword, callback) {
 
 userSchema.methods.hashPassword = function(next) {
   var cipher = Promise.promisify(bcrypt.hash);
-  console.log('HASHPASSWORD IS RUNNING');
   return cipher(this.password, null, null).bind(this)
     .then(function(hash) {
       this.password = hash;
       next();
     });
-  // bcrypt.hash(this.password, null, null, function(err, hash) {
-  //   this.password = hash;
-  //   next();
-  // });
 };
 
 linkSchema.methods.hashLink = function() {

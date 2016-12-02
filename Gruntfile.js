@@ -74,11 +74,11 @@ module.exports = function(grunt) {
       //   command: 'mongod --dbpath db'
       // }
     },
-    servers: {
-      mongo: {
-        dpPath: 'db'
-      }
-    }
+    // servers: {
+    //   mongo: {
+    //     dpPath: 'db'
+    //   }
+    // }
   });
 
   grunt.loadNpmTasks('grunt-contrib-uglify');
@@ -109,11 +109,12 @@ module.exports = function(grunt) {
   ]);
 
   grunt.registerTask('upload', function(n) {
-    console.log('WHY AM I RUNNING');
     if (grunt.option('prod')) {
       grunt.task.run(['shell:prodServer']);
     } else {
-      grunt.task.run(['build', 'servers:start', 'server-dev']);
+      // grunt.task.run(['build', 'servers:start', 'server-dev']);
+      grunt.task.run(['build', 'server-dev']);
+
     }
   });
 

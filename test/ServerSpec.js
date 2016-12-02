@@ -28,7 +28,7 @@ describe('', function() {
       });
   });
 
-  xdescribe('Link creation: ', function() {
+  describe('Link creation: ', function() {
 
     it('Only shortens valid urls, returning a 404 - Not found for invalid urls', function(done) {
       request(app)
@@ -39,7 +39,7 @@ describe('', function() {
         .end(done);
     });
 
-    xdescribe('Shortening links:', function() {
+    describe('Shortening links:', function() {
 
       it('Responds with the short code', function(done) {
         request(app)
@@ -88,7 +88,7 @@ describe('', function() {
 
     }); // 'Shortening Links'
 
-    xdescribe('With previously saved urls: ', function() {
+    describe('With previously saved urls: ', function() {
 
       beforeEach(function(done) {
         link = new Link({
@@ -133,7 +133,7 @@ describe('', function() {
 
   }); // 'Link creation'
 
-  xdescribe('Priviledged Access:', function() {
+  describe('Priviledged Access:', function() {
 
     // /*  Authentication  */
     // // TODO: xit out authentication
@@ -196,7 +196,6 @@ describe('', function() {
           'password': 'Phillip' })
         .expect(302)
         .expect(function(res) {
-          console.log("redirect SPEC", res.headers.location);
           expect(res.headers.location).to.equal('/');
           request(app)
             .get('/logout')
