@@ -4,12 +4,12 @@ var bcrypt = require('bcrypt-nodejs');
 var crypto = require('crypto');
 var Promise = require('bluebird');
 
-mongoose.connect('mongodb://localhost:27017/db');
+mongoose.connect('mongodb://localhost:27017/data/db');
 
 var Schema = mongoose.Schema;
 
 var userSchema = new Schema({
-  username: String,
+  username: {type: String, index: {unique: true} },
   password: String,
   createdAt: Date,
   updatedAt: Date
@@ -46,6 +46,7 @@ userSchema.methods.hashPassword = function(next) {
     .then(function(hash) {
       this.password = hash;
       next();
+      return this;
     });
 };
 
