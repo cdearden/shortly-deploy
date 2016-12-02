@@ -70,7 +70,15 @@ module.exports = function(grunt) {
           'git commit -m "PRODUCING SERVER WITH COMMIT"',
           'git push beta master'].join('&&')
       }
+      // mongod: {
+      //   command: 'mongod --dbpath db'
+      // }
     },
+    servers: {
+      mongo: {
+        dpPath: 'db'
+      }
+    }
   });
 
   grunt.loadNpmTasks('grunt-contrib-uglify');
@@ -81,6 +89,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-mocha-test');
   grunt.loadNpmTasks('grunt-shell');
   grunt.loadNpmTasks('grunt-nodemon');
+  grunt.loadNpmTasks('grunt-start-servers');
 
   grunt.registerTask('server-dev', function (target) {
     // grunt.task.run([ 'nodemon', 'watch' ]);
@@ -104,7 +113,7 @@ module.exports = function(grunt) {
     if (grunt.option('prod')) {
       grunt.task.run(['shell:prodServer']);
     } else {
-      grunt.task.run(['build', 'server-dev']);
+      grunt.task.run(['build', 'servers:start', 'server-dev']);
     }
   });
 

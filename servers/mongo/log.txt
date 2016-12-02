@@ -1,0 +1,36 @@
+2016-12-01T16:17:44.472-0800 [initandlisten] MongoDB starting : pid=18299 port=27017 dbpath=/Users/student/Documents/shortly-deploy/servers/mongo/data 64-bit host=HR8-12.local
+2016-12-01T16:17:44.473-0800 [initandlisten] db version v2.6.7
+2016-12-01T16:17:44.473-0800 [initandlisten] git version: nogitversion
+2016-12-01T16:17:44.473-0800 [initandlisten] build info: Darwin miniyosemite.local 14.1.0 Darwin Kernel Version 14.1.0: Fri Dec  5 06:49:27 PST 2014; root:xnu-2782.10.67~9/RELEASE_X86_64 x86_64 BOOST_LIB_VERSION=1_49
+2016-12-01T16:17:44.473-0800 [initandlisten] allocator: tcmalloc
+2016-12-01T16:17:44.473-0800 [initandlisten] options: { processManagement: { fork: true, pidFilePath: "/Users/student/Documents/shortly-deploy/servers/mongo/mongo.pid" }, storage: { dbPath: "/Users/student/Documents/shortly-deploy/servers/mongo/data" }, systemLog: { destination: "file", path: "/Users/student/Documents/shortly-deploy/servers/mongo/log.txt" } }
+2016-12-01T16:17:44.474-0800 [initandlisten] journal dir=/Users/student/Documents/shortly-deploy/servers/mongo/data/journal
+2016-12-01T16:17:44.474-0800 [initandlisten] recover : no journal files present, no recovery needed
+2016-12-01T16:17:44.521-0800 [initandlisten] allocating new ns file /Users/student/Documents/shortly-deploy/servers/mongo/data/local.ns, filling with zeroes...
+2016-12-01T16:17:44.809-0800 [FileAllocator] allocating new datafile /Users/student/Documents/shortly-deploy/servers/mongo/data/local.0, filling with zeroes...
+2016-12-01T16:17:44.810-0800 [FileAllocator] creating directory /Users/student/Documents/shortly-deploy/servers/mongo/data/_tmp
+2016-12-01T16:17:45.663-0800 [FileAllocator] done allocating datafile /Users/student/Documents/shortly-deploy/servers/mongo/data/local.0, size: 64MB,  took 0.852 secs
+2016-12-01T16:17:45.953-0800 [initandlisten] build index on: local.startup_log properties: { v: 1, key: { _id: 1 }, name: "_id_", ns: "local.startup_log" }
+2016-12-01T16:17:45.955-0800 [initandlisten] 	 added index to empty collection
+2016-12-01T16:17:45.955-0800 [initandlisten] command local.$cmd command: create { create: "startup_log", size: 10485760, capped: true } ntoreturn:1 keyUpdates:0 numYields:0  reslen:37 1434ms
+2016-12-01T16:17:45.956-0800 [initandlisten] waiting for connections on port 27017
+2016-12-01T16:17:51.300-0800 [initandlisten] connection accepted from 127.0.0.1:55950 #1 (1 connection now open)
+2016-12-01T16:18:44.524-0800 [PeriodicTaskRunner] task: DBConnectionPool-cleaner took: 23ms
+2016-12-01T16:18:44.536-0800 [PeriodicTaskRunner] task: WriteBackManager::cleaner took: 11ms
+2016-12-01T16:18:44.543-0800 [clientcursormon] mem (MB) res:10 virt:2648
+2016-12-01T16:18:44.544-0800 [clientcursormon]  mapped (incl journal view):160
+2016-12-01T16:18:44.545-0800 [clientcursormon]  connections:1
+2016-12-01T16:18:49.546-0800 [initandlisten] connection accepted from 127.0.0.1:55957 #2 (2 connections now open)
+2016-12-01T16:19:23.420-0800 [conn1] allocating new ns file /Users/student/Documents/shortly-deploy/servers/mongo/data/db.ns, filling with zeroes...
+2016-12-01T16:19:23.583-0800 [FileAllocator] allocating new datafile /Users/student/Documents/shortly-deploy/servers/mongo/data/db.0, filling with zeroes...
+2016-12-01T16:19:24.215-0800 [FileAllocator] done allocating datafile /Users/student/Documents/shortly-deploy/servers/mongo/data/db.0, size: 64MB,  took 0.631 secs
+2016-12-01T16:19:24.429-0800 [conn1] build index on: db.users properties: { v: 1, key: { _id: 1 }, name: "_id_", ns: "db.users" }
+2016-12-01T16:19:24.442-0800 [conn1] 	 added index to empty collection
+2016-12-01T16:19:24.442-0800 [conn1] insert db.users query: { createdAt: new Date(1480637963084), updatedAt: new Date(1480637963084), username: "asdf", password: "$2a$10$jjOy0VkirkA5fto9ik9afedo1PvPyssP7xo3BBfMnB08bx5bp.VfW", _id: ObjectId('5840be0baf0c9f477da3c242'), __v: 0 } ninserted:1 keyUpdates:0 numYields:0 locks(micros) w:1022444 1022ms
+2016-12-01T16:19:24.443-0800 [conn1] command db.$cmd command: insert { insert: "users", documents: [ { createdAt: new Date(1480637963084), updatedAt: new Date(1480637963084), username: "asdf", password: "$2a$10$jjOy0VkirkA5fto9ik9afedo1PvPyssP7xo3BBfMnB08bx5bp.VfW", _id: ObjectId('5840be0baf0c9f477da3c242'), __v: 0 } ], ordered: false, writeConcern: { w: 1 } } ntoreturn:1 keyUpdates:0 numYields:0 locks(micros) w:288 reslen:40 1051ms
+2016-12-01T16:19:44.589-0800 [clientcursormon] mem (MB) res:10 virt:2808
+2016-12-01T16:19:44.590-0800 [clientcursormon]  mapped (incl journal view):320
+2016-12-01T16:19:44.591-0800 [clientcursormon]  connections:2
+2016-12-01T16:19:57.891-0800 [conn1] end connection 127.0.0.1:55950 (1 connection now open)
+2016-12-01T16:20:08.538-0800 [initandlisten] connection accepted from 127.0.0.1:55964 #3 (2 connections now open)
+2016-12-01T16:20:10.029-0800 [conn3] end connection 127.0.0.1:55964 (1 connection now open)

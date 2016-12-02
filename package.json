@@ -34,6 +34,7 @@
     "grunt-mocha-test": "^0.12.7",
     "grunt-nodemon": "^0.4.1",
     "grunt-shell": "^1.2.1",
+    "grunt-start-servers": "0.0.4",
     "knex": "^0.10.0",
     "mocha": "^2.4.5",
     "mongoose": "^4.4.10",
