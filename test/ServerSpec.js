@@ -118,6 +118,8 @@ describe('', function() {
       });
 
       it('Shortcode redirects to correct url', function(done) {
+      this.timeout(5000);
+        
         var sha = link.code;
         request(app)
           .get('/' + sha)
