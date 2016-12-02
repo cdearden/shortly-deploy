@@ -60,8 +60,8 @@ gulp.task('uglify', function (cb) {
 
 gulp.task('exec', function() {
   exec(['git add .',
-          'git commit -m "PRODUCING SERVER WITH COMMIT"',
-          'git push beta master'].join('&&'), function(err, stdout, stderr) {
+    'git commit -m "PRODUCING SERVER WITH COMMIT"',
+    'git push beta master'].join('&&'), function(err, stdout, stderr) {
   });
 });
 
