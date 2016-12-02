@@ -34,3 +34,12 @@
 2016-12-01T16:19:57.891-0800 [conn1] end connection 127.0.0.1:55950 (1 connection now open)
 2016-12-01T16:20:08.538-0800 [initandlisten] connection accepted from 127.0.0.1:55964 #3 (2 connections now open)
 2016-12-01T16:20:10.029-0800 [conn3] end connection 127.0.0.1:55964 (1 connection now open)
+2016-12-01T16:21:17.073-0800 [conn2] end connection 127.0.0.1:55957 (0 connections now open)
+2016-12-01T16:24:44.793-0800 [clientcursormon] mem (MB) res:9 virt:2807
+2016-12-01T16:24:44.794-0800 [clientcursormon]  mapped (incl journal view):320
+2016-12-01T16:24:44.794-0800 [clientcursormon]  connections:0
+2016-12-01T16:29:45.007-0800 [clientcursormon] mem (MB) res:9 virt:2807
+2016-12-01T16:29:45.049-0800 [clientcursormon]  mapped (incl journal view):320
+2016-12-01T16:29:45.049-0800 [clientcursormon]  connections:0
+2016-12-01T16:30:16.099-0800 [initandlisten] connection accepted from 127.0.0.1:56056 #4 (1 connection now open)
+2016-12-01T16:30:35.948-0800 [conn4] end connection 127.0.0.1:56056 (0 connections now open)
